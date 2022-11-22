@@ -8,7 +8,7 @@ import CreateArea from "./components/CreateArea";
 function App() {
   function getLocalItem(){
     if(localStorage.getItem("lists")){
-      return JSON.parse(localStorage.getItem("lists"));
+      return JSON.parse(localStorage.getItem("lists"))!==undefined?JSON.parse(localStorage.getItem("lists")):null;
     }
   }
   const [notes, setNotes] = useState(getLocalItem());
