@@ -1,8 +1,7 @@
 {
   "name": "keeper-app",
-  "homepage": ".",
+  "homepage": "http://.",
   "version": "1.0.0",
-  "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -29,5 +28,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
