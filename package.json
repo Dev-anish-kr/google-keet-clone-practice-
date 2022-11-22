@@ -1,8 +1,8 @@
 {
-  "name": "using-pre-built-react-components",
+  "name": "keeper-app",
+  "homepage": ".",
   "version": "1.0.0",
   "description": "",
-  "homepage": ".",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
