@@ -10,13 +10,18 @@ function CreateArea(props) {
 
   function handleChange(event) {
     const { name, value } = event.target;
+    if (value!=="") {
+      console.log(value);
+      setNote(prevNote => {
+        return {
+          ...prevNote,
+          [name]: value
+        };
+      });
 
-    setNote(prevNote => {
-      return {
-        ...prevNote,
-        [name]: value
-      };
-    });
+    }else {
+      alert("Enter valid");
+    }
   }
 
   function submitNote(event) {
@@ -29,32 +34,34 @@ function CreateArea(props) {
   }
   const [isZoom, setIsZoome] = useState(false);
   function zoomfun() {
-   setIsZoome(true);
+    setIsZoome(true);
   }
   return (
     <div>
       <form className="create-note">
-        {isZoom&&
+        {isZoom &&
           <input
             name="title"
             onChange={handleChange}
             value={note.title}
             placeholder="Title"
+            required
           />
-          }
+        }
         <textarea
           name="content"
           onChange={handleChange}
           value={note.content}
           placeholder="Take a note..."
-          rows={isZoom?3:1}
+          rows={isZoom ? 3 : 1}
           onClick={zoomfun}
+          required
         />
         <Zoom in={isZoom}>
-        <Fab color="primary" aria-label="add" onClick={submitNote}>
-          <AddIcon />
+          <Fab color="primary" aria-label="add" onClick={submitNote}>
+            <AddIcon />
 
-        </Fab>
+          </Fab>
         </Zoom>
       </form>
     </div>

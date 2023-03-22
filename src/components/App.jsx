@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Note from "./components/Note";
-import CreateArea from "./components/CreateArea";
+import "../App.css";
+import Header from "./Header";
+import Footer from "./Footer";
+import Note from "./Note";
+import CreateArea from "./CreateArea";
 
 function App() {
-  function getLocalItem(){
-    if(localStorage.getItem("lists")){
-      return JSON.parse(localStorage.getItem("lists"))!==undefined?JSON.parse(localStorage.getItem("lists")):null;
-    }
-  }
-  const [notes, setNotes] = useState(getLocalItem());
+  const [notes, setNotes] = useState([]);
 
   function addNote(newNote) {
-    setNotes((prevNotes) => {
+    newNote.title!==""&&newNote.content!==""?setNotes((prevNotes) => {
       return [...prevNotes, newNote];
-    });
+    }):alert("Enter valid Argument");
+    
   }
 
   function deleteNote(id) {
@@ -26,9 +22,6 @@ function App() {
       });
     });
   }
-  useEffect(() => {
-   localStorage.setItem("lists",JSON.stringify(notes));
-  }, [notes])
   
   return (
     <div>
